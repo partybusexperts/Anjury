@@ -76,40 +76,76 @@ export const serviceHighlights = [
 
 export const galleryItems = [
   {
-    image: "/media/anjury1.jpg",
+    image: "/media/anjury1.png",
     title: "anjury1",
     description:
-      "Torta de cumpleaños de vainilla con relleno de fresas y crema chantilly, decorada con swirls pastel.",
+      "Torta drip en tonos rosados con mariposas y perlitas comestibles listas para un cumpleaños tipo fairycore.",
   },
   {
-    image: "/media/anjury2.jpg",
+    image: "/media/anjury2.png",
     title: "anjury2",
     description:
-      "Mesa de postres con mini tortas, cupcakes y quesillo para un baby shower íntimo.",
+      "Buttercream degradado menta + durazno con flores de crema estilo swirls WOW Dulce.",
   },
   {
-    image: "/media/anjury3.jpg",
+    image: "/media/anjury3.png",
     title: "anjury3",
     description:
-      "Torta tres leches con toques de arequipe y frutas frescas, un clásico venezolano.",
+      "Set de mini tortas y shots de postre para mesas dulces íntimas en San Cristóbal.",
   },
   {
-    image: "/media/anjury4.jpg",
+    image: "/media/anjury4.png",
     title: "anjury4",
     description:
-      "Torta elegante de dos pisos en blanco y dorado con flores de azúcar para boda civil.",
+      "Torta de dos pisos blanco-dorado con flores de azúcar para boda civil boutique.",
   },
   {
-    image: "/media/anjury5.jpg",
+    image: "/media/anjury5.png",
     title: "anjury5",
     description:
-      "Cupcakes temáticos para primera comunión con toppers personalizados y buttercream suave.",
+      "Cupcakes temáticos con toppers personalizados y buttercream suave para primeras comuniones.",
   },
   {
-    image: "/media/anjury6.jpg",
+    image: "/media/anjury6.png",
     title: "anjury6",
     description:
-      "Torta de chocolate intenso con ganache brillante para amantes del cacao tachirense.",
+      "Torta de chocolate intenso con ganache espejo y detalles de cacao tachirense.",
+  },
+  {
+    image: "/media/anjury7.png",
+    title: "anjury7",
+    description:
+      "Galletas y brownies empaquetados como detalles dulces para sorpresas de madrugada.",
+  },
+  {
+    image: "/media/anjury8.png",
+    title: "anjury8",
+    description:
+      "Box desayuno con torta mini, frutas y notas personalizadas para pedir perdón con estilo.",
+  },
+  {
+    image: "/media/anjury9.png",
+    title: "anjury9",
+    description:
+      "Torta minimalista con hojas doradas y flores frescas para eventos empresariales.",
+  },
+  {
+    image: "/media/anjury10.png",
+    title: "anjury10",
+    description:
+      "Pastel tres leches cubierto de merengue flameado, listo para fotos familiares.",
+  },
+  {
+    image: "/media/anjury11.png",
+    title: "anjury11",
+    description:
+      "Mesa de postres con quesillo, marquesa y mini cupcakes en soportes transparentes.",
+  },
+  {
+    image: "/media/anjury12.png",
+    title: "anjury12",
+    description:
+      "Torta floral con crema texturizada y topper WOW Dulce para bodas íntimas en Táriba.",
   },
 ];
 

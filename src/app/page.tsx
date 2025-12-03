@@ -53,7 +53,7 @@ export default function HomePage() {
           <div className="absolute -inset-4 rounded-[2.5rem] bg-white/60 blur" />
           <div className="relative rounded-[2.5rem] bg-white/90 p-3 shadow-2xl">
             <Image
-              src="/media/anjury1.jpg"
+              src="/media/anjury1.png"
               alt="Torta colorida de WOW Dulce decorada con swirls y frutas"
               width={640}
               height={640}
