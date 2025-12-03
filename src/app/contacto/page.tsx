@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { brandInfo } from "@/data/site-content";
 
@@ -30,7 +31,7 @@ export default function ContactoPage() {
         </p>
       </section>
 
-      <section className="grid gap-8 md:grid-cols-2">
+      <section className="grid gap-8 md:grid-cols-3">
         <form className="space-y-4 rounded-3xl bg-white/90 p-6 shadow">
           {fields.map((field) => (
             <div key={field.name} className="space-y-2">
@@ -110,6 +111,23 @@ export default function ContactoPage() {
           <p className="text-xs text-dulce-cacao/60">
             Nota: Pedimos 50% de abono para asegurar tu fecha. El resto se paga al entregar.
           </p>
+        </div>
+
+        <div className="space-y-4 rounded-3xl bg-white/90 p-6 shadow">
+          <Image
+            src="/media/anjury6.png"
+            alt="Muestras de tortas para contacto WOW Dulce"
+            width={420}
+            height={520}
+            className="h-64 w-full rounded-2xl object-cover"
+          />
+          <Image
+            src="/media/anjury7.png"
+            alt="Detalle dulce personalizado"
+            width={420}
+            height={520}
+            className="h-64 w-full rounded-2xl object-cover"
+          />
         </div>
       </section>
     </div>

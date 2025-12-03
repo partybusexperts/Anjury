@@ -141,6 +141,29 @@ export default function HomePage() {
       </section>
 
       <section className="mt-16 space-y-4">
+        <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-dulce-cacao">Detrás del horno</h2>
+            <p className="text-sm text-dulce-cacao/70">
+              Entre mezclas, drips y cajas sorpresa siempre hay color y swirls.
+            </p>
+          </div>
+        </div>
+        <div className="grid gap-4 md:grid-cols-4">
+          {["/media/anjury7.png", "/media/anjury8.png", "/media/anjury9.png", "/media/anjury10.png"].map((src) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Proceso creativo de WOW Dulce"
+              width={320}
+              height={320}
+              className="h-48 w-full rounded-2xl object-cover shadow"
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16 space-y-4">
         <h2 className="text-2xl font-bold text-dulce-cacao">
           Lo que dicen nuestros clientes
         </h2>

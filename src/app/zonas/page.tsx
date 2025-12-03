@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
@@ -27,6 +28,18 @@ export default function ZonasPage() {
         <p className="mt-4 text-sm font-semibold text-dulce-cacao">
           Radios de servicio: {brandInfo.serviceRadius}
         </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {["/media/anjury8.png", "/media/anjury9.png"].map((src) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Entregas de WOW Dulce en ruta"
+              width={520}
+              height={360}
+              className="h-48 w-full rounded-3xl object-cover"
+            />
+          ))}
+        </div>
       </section>
 
       <section className="grid gap-6 md:grid-cols-3">

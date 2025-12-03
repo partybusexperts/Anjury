@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -5,6 +6,18 @@ import { RainbowCta } from "@/components/cta-rainbow";
 import { brandInfo, cities } from "@/data/site-content";
 
 const cityMap = Object.fromEntries(cities.map((city) => [city.slug, city]));
+
+const cityImages: Record<string, string> = {
+  "san-cristobal": "/media/anjury1.png",
+  tariba: "/media/anjury2.png",
+  rubio: "/media/anjury3.png",
+  palmira: "/media/anjury4.png",
+  "la-grita": "/media/anjury5.png",
+  michelena: "/media/anjury6.png",
+  "san-antonio": "/media/anjury7.png",
+  "capacho-viejo": "/media/anjury8.png",
+  "capacho-nuevo": "/media/anjury9.png",
+};
 
 type CityPageProps = {
   params: { ciudad: string };
@@ -44,6 +57,15 @@ export default function CiudadPage({ params }: CityPageProps) {
           Coordinamos entregas dentro de {brandInfo.location}. Agenda con 5-7 días de
           anticipación para asegurar tu horario ideal.
         </p>
+        <div className="mt-6">
+          <Image
+            src={cityImages[city.slug] ?? "/media/anjury10.png"}
+            alt={`Torta WOW Dulce para ${city.name}`}
+            width={960}
+            height={600}
+            className="h-64 w-full rounded-3xl object-cover"
+          />
+        </div>
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">

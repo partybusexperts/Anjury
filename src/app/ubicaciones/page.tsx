@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
@@ -42,6 +43,18 @@ export default function UbicacionesPage() {
           <span className="rounded-full bg-dulce-mint/30 px-3 py-1">
             ✔️ Entregas sujetas a agenda y clima
           </span>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          {["/media/anjury11.png", "/media/anjury12.png"].map((src) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Ciudades del Táchira atendidas por WOW Dulce"
+              width={520}
+              height={360}
+              className="h-48 w-full rounded-3xl object-cover"
+            />
+          ))}
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
@@ -38,6 +39,19 @@ export default function FaqPage() {
           </div>
         ))}
       </dl>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {["/media/anjury4.png", "/media/anjury5.png"].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Preguntas frecuentes WOW Dulce"
+            width={520}
+            height={360}
+            className="h-48 w-full rounded-3xl object-cover"
+          />
+        ))}
+      </div>
 
       <RainbowCta
         title="¿Listo para asegurar tu fecha?"

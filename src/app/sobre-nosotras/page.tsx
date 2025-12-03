@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { brandInfo } from "@/data/site-content";
@@ -79,6 +80,18 @@ export default function SobreNosotrasPage() {
               Las primeras tortas WOW Dulce fueron para vecinos y maestras del
               colegio de Anjury. Hoy viajan por todo el Táchira.
             </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {["/media/anjury2.png", "/media/anjury6.png"].map((src) => (
+              <Image
+                key={src}
+                src={src}
+                alt="Anjury creando tortas WOW"
+                width={320}
+                height={320}
+                className="h-36 w-full rounded-2xl object-cover"
+              />
+            ))}
           </div>
         </aside>
       </section>

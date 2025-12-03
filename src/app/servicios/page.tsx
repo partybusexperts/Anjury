@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
@@ -32,6 +33,18 @@ export default function ServiciosPage() {
             Solicitar cotización rápida
           </Link>
         </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {["/media/anjury3.png", "/media/anjury4.png", "/media/anjury5.png"].map((src) => (
+            <Image
+              key={src}
+              src={src}
+              alt="Portafolio de servicios WOW Dulce"
+              width={420}
+              height={320}
+              className="h-40 w-full rounded-2xl object-cover"
+            />
+          ))}
+        </div>
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">
@@ -61,6 +74,22 @@ export default function ServiciosPage() {
           Tip: Siempre pide un poquito más… siempre hay alguien que repite 🙈
         </p>
       </section>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {[
+          "/media/anjury11.png",
+          "/media/anjury12.png",
+        ].map((src) => (
+          <Image
+            key={src}
+            src={src}
+            alt="Producción de servicios WOW Dulce"
+            width={520}
+            height={400}
+            className="h-52 w-full rounded-3xl object-cover"
+          />
+        ))}
+      </div>
 
       <RainbowCta
         title="¿Mesas de postres, dulces típicos o tortas personalizadas?"
