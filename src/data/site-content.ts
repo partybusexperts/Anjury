@@ -10,8 +10,9 @@ export const brandInfo = {
 };
 
 export const navLinks = [
-  { href: "/sobre-nosotras", label: "Sobre nosotras" },
+  { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
+  { href: "/sobre-nosotras", label: "Sobre nosotras" },
   { href: "/zonas", label: "Ubicaciones" },
   { href: "/galeria", label: "Galería" },
   { href: "/faq", label: "FAQ" },

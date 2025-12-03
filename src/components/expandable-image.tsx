@@ -75,7 +75,7 @@ export function ExpandableImage({
               type="button"
               aria-label="Cerrar foto ampliada"
               onClick={closeLightbox}
-              className="absolute right-5 top-5 inline-flex items-center rounded-full bg-black/80 px-3 py-1 text-xs font-semibold text-white"
+              className="absolute right-5 top-5 z-10 inline-flex items-center rounded-full bg-black/80 px-3 py-1 text-xs font-semibold text-white focus:outline-none focus:ring-2 focus:ring-white/70"
             >
               ✕ Cerrar
             </button>
