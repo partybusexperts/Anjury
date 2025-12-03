@@ -97,26 +97,47 @@ export default function HomePage() {
         </InfoModal>
       </section>
 
-      <section className="mt-16 space-y-4">
+      <section className="mt-16 space-y-6">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <h2 className="text-2xl font-bold text-dulce-cacao">Servicios destacados</h2>
+          <div>
+            <h2 className="text-2xl font-bold text-dulce-cacao">Servicios destacados</h2>
+            <p className="text-sm text-dulce-cacao/70">
+              Cada tarjeta abre un modal con detalles, sabores y tips antes de cotizar.
+            </p>
+          </div>
           <Link href="/servicios" className="text-sm font-semibold text-dulce-pink">
-            Ver todos los servicios →
+            Ver catálogo completo →
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {serviceHighlights.map((service) => (
-            <article key={service.title} className="swirl-card rounded-2xl p-5">
-              <h3 className="text-lg font-semibold text-dulce-cacao">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-sm text-dulce-cacao/80">{service.description}</p>
-              <Link
-                href="/contacto"
-                className="mt-3 inline-flex text-xs font-semibold text-dulce-pink"
-              >
-                Pedir info →
-              </Link>
+            <article key={service.title} className="swirl-card flex flex-col gap-4 rounded-3xl p-5">
+              <ExpandableImage
+                src={service.image}
+                alt={service.title}
+                width={520}
+                height={520}
+                className="aspect-square w-full rounded-2xl object-cover"
+              />
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-dulce-cacao">{service.title}</h3>
+                <p className="text-sm text-dulce-cacao/80">{service.description}</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <InfoModal title={service.modalTitle} triggerLabel="Ver detalles" tone="mint">
+                  <ul className="list-disc pl-5">
+                    {service.modalBullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </InfoModal>
+                <Link
+                  href={service.ctaHref}
+                  className="inline-flex items-center rounded-full border border-dulce-cacao/20 px-4 py-2 text-xs font-semibold text-dulce-pink hover:bg-white"
+                >
+                  {service.ctaLabel} →
+                </Link>
+              </div>
             </article>
           ))}
         </div>
@@ -142,7 +163,7 @@ export default function HomePage() {
                 alt={item.description}
                 width={420}
                 height={320}
-                className="h-48 w-full rounded-2xl object-cover"
+                className="h-72 w-full rounded-3xl object-cover"
                 caption={item.description}
               />
               <figcaption className="mt-3 text-sm text-dulce-cacao/80">
@@ -169,15 +190,22 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-4">
-          {["/media/anjury7.png", "/media/anjury8.png", "/media/anjury9.png", "/media/anjury10.png"].map((src, index) => (
+        <div className="grid gap-4 md:grid-cols-6">
+          {[
+            "/media/anjury7.png",
+            "/media/anjury8.png",
+            "/media/anjury9.png",
+            "/media/anjury10.png",
+            "/media/anjury11.png",
+            "/media/anjury12.png",
+          ].map((src, index) => (
             <ExpandableImage
               key={src}
               src={src}
               alt={`Proceso creativo de WOW Dulce ${index + 1}`}
               width={320}
               height={320}
-              className="h-48 w-full rounded-2xl object-cover"
+              className="aspect-square w-full rounded-3xl object-cover"
               frameClassName="shadow"
             />
           ))}

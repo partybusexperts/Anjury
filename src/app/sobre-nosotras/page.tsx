@@ -174,6 +174,47 @@ export default function SobreNosotrasPage() {
         </div>
       </section>
 
+      <section className="rounded-3xl bg-white/90 p-6 shadow">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-dulce-cacao">Detrás del atelier WOW</h2>
+            <p className="text-sm text-dulce-cacao/70">
+              Ocho fotos que muestran mezclas, drips y empaques antes de salir a entregar.
+            </p>
+          </div>
+          <InfoModal title="Procesos artesanales" triggerLabel="Ver detalles" tone="mint">
+            <p>
+              Pesamos cada ingrediente en gramos para mantener textura uniforme. Los swirls se hacen con
+              mangas personalizadas según lote.
+            </p>
+            <p>
+              Cada caja va con stickers WOW Dulce, estabilizadores y nota escrita a mano.
+            </p>
+          </InfoModal>
+        </div>
+        <div className="mt-4 grid gap-3 md:grid-cols-4">
+          {[
+            "/media/anjury2.png",
+            "/media/anjury3.png",
+            "/media/anjury4.png",
+            "/media/anjury5.png",
+            "/media/anjury6.png",
+            "/media/anjury7.png",
+            "/media/anjury8.png",
+            "/media/anjury9.png",
+          ].map((src, index) => (
+            <ExpandableImage
+              key={src}
+              src={src}
+              alt={`Detrás del atelier WOW ${index + 1}`}
+              width={420}
+              height={420}
+              className="aspect-square w-full rounded-3xl object-cover"
+            />
+          ))}
+        </div>
+      </section>
+
       <RainbowCta
         title="¿Listas para planear tu torta?"
         description="Cuéntanos qué estás celebrando y te recomendamos sabores, tamaños y diseños perfectos para tu evento."

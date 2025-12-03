@@ -140,6 +140,31 @@ export default function ContactoPage() {
           />
         </div>
       </section>
+
+      <section className="rounded-3xl bg-white/85 p-6 shadow">
+        <h2 className="text-2xl font-bold text-dulce-cacao">Moodboard de pedidos recientes</h2>
+        <p className="mt-2 text-sm text-dulce-cacao/70">
+          Mientras respondes el formulario, inspírate con estas fotos reales. Todas están listas para
+          ampliarse con un clic.
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-4">
+          {[
+            "/media/anjury8.png",
+            "/media/anjury9.png",
+            "/media/anjury10.png",
+            "/media/anjury11.png",
+          ].map((src, index) => (
+            <ExpandableImage
+              key={src}
+              src={src}
+              alt={`Moodboard de contacto WOW Dulce ${index + 1}`}
+              width={420}
+              height={420}
+              className="aspect-square w-full rounded-3xl object-cover"
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

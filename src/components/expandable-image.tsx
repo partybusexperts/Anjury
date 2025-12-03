@@ -1,7 +1,7 @@
 "use client";
 
 import Image, { type ImageProps } from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 interface ExpandableImageProps extends ImageProps {
   caption?: string;
@@ -17,22 +17,30 @@ export function ExpandableImage({
   ...imageProps
 }: ExpandableImageProps) {
   const [open, setOpen] = useState(false);
+  const previousOverflow = useRef<string | undefined>(undefined);
+
+  const closeLightbox = useCallback(() => {
+    setOpen(false);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpen(false);
+        closeLightbox();
       }
     };
     if (open) {
       document.addEventListener("keydown", handleKeyDown);
+      previousOverflow.current = document.body.style.overflow;
       document.body.style.overflow = "hidden";
     }
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
+      if (previousOverflow.current !== undefined) {
+        document.body.style.overflow = previousOverflow.current;
+      }
     };
-  }, [open]);
+  }, [open, closeLightbox]);
 
   return (
     <>
@@ -51,31 +59,36 @@ export function ExpandableImage({
 
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
-          onClick={() => setOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Vista ampliada de ${alt}`}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={closeLightbox}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-3xl bg-white/95 p-4 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-[2.5rem] bg-white/95 p-5 shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
-              onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 rounded-full bg-black/70 px-3 py-1 text-xs font-semibold text-white"
+              aria-label="Cerrar foto ampliada"
+              onClick={closeLightbox}
+              className="absolute right-5 top-5 inline-flex items-center rounded-full bg-black/80 px-3 py-1 text-xs font-semibold text-white"
             >
-              Cerrar ✕
+              ✕ Cerrar
             </button>
-            <div className="relative h-[65vh] w-full">
+            <div className="relative aspect-video w-full">
               <Image
                 src={src}
                 alt={alt}
                 fill
                 sizes="100vw"
                 className="rounded-2xl object-contain"
+                priority={imageProps.priority}
               />
             </div>
             {caption && (
-              <p className="mt-3 text-center text-sm font-semibold text-dulce-cacao">{caption}</p>
+              <p className="mt-4 text-center text-sm font-semibold text-dulce-cacao">{caption}</p>
             )}
           </div>
         </div>

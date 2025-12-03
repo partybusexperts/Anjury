@@ -12,7 +12,7 @@ export const brandInfo = {
 export const navLinks = [
   { href: "/sobre-nosotras", label: "Sobre nosotras" },
   { href: "/servicios", label: "Servicios" },
-  { href: "/zonas", label: "Zonas" },
+  { href: "/zonas", label: "Ubicaciones" },
   { href: "/galeria", label: "Galería" },
   { href: "/faq", label: "FAQ" },
   { href: "/contacto", label: "Contacto" },
@@ -49,27 +49,72 @@ export const serviceHighlights = [
   {
     title: "Tortas de cumpleaños",
     description:
-      "Personalizadas con tu temática favorita, rellenos cremosos y acabados llenos de color.",
+      "Personalizadas con temática, topper y relleno favorito. Nada de tortas genéricas.",
+    image: "/media/anjury3.png",
+    ctaLabel: "Armar cumpleaños",
+    ctaHref: "/contacto?tipo=cumple",
+    modalTitle: "Cómo diseñamos las tortas de cumpleaños",
+    modalBullets: [
+      "Moodboard según la edad, fandom o paleta que te inspire.",
+      "Capas de vainilla, chocolate, red velvet o jojoto combinadas con rellenos cremosos.",
+      "Entrega segura con cajas reforzadas y soporte interno.",
+    ],
   },
   {
-    title: "Tortas para bodas y aniversarios",
+    title: "Bodas y aniversarios",
     description:
-      "Diseños elegantes de uno o varios pisos, con flores naturales o de azúcar.",
+      "Tortas de uno o varios pisos con flores, metalizados y detalles elegantes.",
+    image: "/media/anjury4.png",
+    ctaLabel: "Diseñar boda",
+    ctaHref: "/contacto?tipo=boda",
+    modalTitle: "Tortas para bodas WOW Dulce",
+    modalBullets: [
+      "Pruebas de sabor mini para elegir combinaciones.",
+      "Flores naturales, de azúcar o toppers acrílicos personalizados.",
+      "Coordinación con wedding planner para montaje perfecto.",
+    ],
   },
   {
     title: "Mesas de postres",
     description:
-      "Mini tortas, cupcakes, shots de postre y más para que cada invitado tenga su favorito.",
+      "Shots, mini tortas, brownies y cupcakes para que cada invitado tenga su favorito.",
+    image: "/media/anjury11.png",
+    ctaLabel: "Curar mesa",
+    ctaHref: "/servicios#mesas",
+    modalTitle: "Cómo armamos las mesas de postres",
+    modalBullets: [
+      "Selección de 4 a 8 bocados distintos.",
+      "Displays, alturas y etiquetas impresas incluidas.",
+      "Opciones veganas o sin azúcar bajo pedido.",
+    ],
   },
   {
     title: "Dulces típicos del Táchira",
     description:
-      "Quesillo, marquesas, tres leches, brazo gitano y postres con sabor a tradición.",
+      "Quesillo cremoso, marquesas, tres leches y brazo gitano con sello tachirense.",
+    image: "/media/anjury10.png",
+    ctaLabel: "Antojos criollos",
+    ctaHref: "/contacto?tipo=dulces",
+    modalTitle: "Sabores con nostalgia",
+    modalBullets: [
+      "Recetas familiares con papelón, guayaba o cacao local.",
+      "Presentaciones individuales o bandejas familiares.",
+      "Ideal para enviar a familiares fuera del país.",
+    ],
   },
   {
-    title: "Detalles dulces personalizados",
+    title: "Detalles y regalos dulces",
     description:
-      "Cajas sorpresa, desayunos especiales y regalitos dulces para sorprender.",
+      "Cajas sorpresa, desayunos especiales y regalitos personalizados.",
+    image: "/media/anjury8.png",
+    ctaLabel: "Enviar sorpresa",
+    ctaHref: "/contacto?tipo=detalles",
+    modalTitle: "Kits y cajas WOW Dulce",
+    modalBullets: [
+      "Incluye tarjeta escrita a mano y mensajes personalizados.",
+      "Podemos agregar globos, flores o props si lo coordinas con tiempo.",
+      "Perfecto para pedir perdón, dar las gracias o madrugar un cumple.",
+    ],
   },
 ];
 
@@ -220,33 +265,128 @@ export const faqs = [
     answer:
       "Sí. Armamos cajas personalizadas con tu logo, desayunos empresariales y mesas de postres temáticas para lanzamientos.",
   },
+  {
+    question: "¿Puedo agendar varias tortas el mismo día?",
+    answer:
+      "Si el horario lo permite podemos coordinar entregas consecutivas. Escríbenos las direcciones exactas para reservar la agenda.",
+  },
+  {
+    question: "¿Trabajan con fondant o solo buttercream?",
+    answer:
+      "La base es buttercream suave, pero podemos usar detalles en fondant, papel de arroz o chocolate modelado para efectos especiales.",
+  },
+  {
+    question: "¿Cómo debo conservar la torta si llega antes del evento?",
+    answer:
+      "Manténla en un lugar fresco, lejos del sol directo. Si es de crema, refrigera y sácalo 30 minutos antes de servir.",
+  },
+  {
+    question: "¿Puedo pagar en dólares o Zelle?",
+    answer:
+      "Aceptamos pago móvil, transferencia, divisas y Zelle. Indica tu método preferido para enviarte los datos al reservar.",
+  },
 ];
 
 export const serviceDetails = [
   {
     title: "Tortas de cumpleaños",
     body:
-      "Personalizadas con nombre, edad y temática (superhéroes, princesas, fútbol, minimalistas, etc.). Sabores sugeridos: vainilla, chocolate, marmoleada, red velvet y tres leches.",
+      "Personalizadas con nombre, edad, topper y temática. Puedes mezclar pisos, colores y texturas para que la torta combine con la deco.",
+    badge: "Cumpleaños",
+    highlights: [
+      "Sabores: vainilla, chocolate, marmoleada, red velvet, tres leches.",
+      "Toppers acrílicos, comestibles o impresos incluidos.",
+      "Entrega en caja reforzada y base acrílica.",
+    ],
+    images: ["/media/anjury1.png", "/media/anjury3.png", "/media/anjury5.png"],
+    modalTitle: "Checklist de cumpleaños",
+    modalBullets: [
+      "Define la temática y paleta.",
+      "Confirma número de porciones.",
+      "Envía foto de referencia si la tienes.",
+    ],
+    ctaLabel: "Reservar cumpleaños",
+    ctaHref: "/contacto?tipo=cumple",
   },
   {
     title: "Tortas para bodas y aniversarios",
     body:
-      "Diseños elegantes de uno o varios pisos con flores naturales o de azúcar, toques dorados, cintas y acabados modernos.",
+      "Diseños elegantes de uno o varios pisos con flores naturales o de azúcar, toques metalizados y acabados de lujo.",
+    badge: "Bodas",
+    highlights: [
+      "Pruebas mini antes del gran día.",
+      "Flores preservadas o de azúcar hechas a mano.",
+      "Coordinación con planner para montaje.",
+    ],
+    images: ["/media/anjury4.png", "/media/anjury9.png", "/media/anjury12.png"],
+    modalTitle: "Experiencia bridal",
+    modalBullets: [
+      "Diseño 3D previo al evento.",
+      "Entrega puntual con reporte fotográfico.",
+      "Soporte de emergencia si necesitas retoques.",
+    ],
+    ctaLabel: "Agendar cata",
+    ctaHref: "/contacto?tipo=boda",
   },
   {
     title: "Dulces típicos del Táchira",
     body:
-      "Quesillo, torta de jojoto, marquesa, suspiros y brazo gitano para mesas dulces que saben a tradición.",
+      "Quesillo, torta de jojoto, marquesa, suspiros y brazo gitano con recetas familiares.",
+    badge: "Sabores criollos",
+    highlights: [
+      "Ideal para enviar a familiares en casa.",
+      "Presentaciones individuales o bandejas.",
+      "Se pueden personalizar etiquetas.",
+    ],
+    images: ["/media/anjury10.png", "/media/anjury7.png", "/media/anjury8.png"],
+    modalTitle: "Ritual tachirense",
+    modalBullets: [
+      "Hecho con papelón y cacao local.",
+      "Enfriamos en cava para viajes largos.",
+      "Añade notas dedicadas.",
+    ],
+    ctaLabel: "Antojarme",
+    ctaHref: "/contacto?tipo=dulces",
   },
   {
     title: "Mesas de postres para eventos",
     body:
-      "Mini tortas, shots de postre, cupcakes, brownie bites y galletas decoradas listas para impresionar.",
+      "Mini tortas, shots, cupcakes, brownie bites y galletas decoradas listas para impresionar.",
+    badge: "Mesas",
+    highlights: [
+      "Diseñamos alturas y displays.",
+      "Incluye rótulos e identificadores.",
+      "Coordinamos montaje in situ.",
+    ],
+    images: ["/media/anjury11.png", "/media/anjury2.png", "/media/anjury6.png"],
+    modalTitle: "Cómo calculamos las mesas",
+    modalBullets: [
+      "1.5 porciones por invitado para evitar quedarse corto.",
+      "Mix de texturas: cremoso, crocante y frutal.",
+      "Opciones kids-friendly + gourmet.",
+    ],
+    ctaLabel: "Armar mesa",
+    ctaHref: "/servicios#mesas",
   },
   {
     title: "Detalles dulces",
     body:
       "Cajitas de regalo, desayunos sorpresa y postres para pedir perdón o celebrar algo íntimo.",
+    badge: "Regalos",
+    highlights: [
+      "Incluye tarjeta y mensaje.",
+      "Podemos sumar flores o globos.",
+      "Perfecto para madrugar aniversarios.",
+    ],
+    images: ["/media/anjury8.png", "/media/anjury7.png", "/media/anjury1.png"],
+    modalTitle: "Sorpresas WOW",
+    modalBullets: [
+      "Coordinamos entregas silenciosas.",
+      "Personaliza sabores mini.",
+      "Incluye QR con playlist opcional.",
+    ],
+    ctaLabel: "Enviar detalle",
+    ctaHref: "/contacto?tipo=detalle",
   },
 ];
 

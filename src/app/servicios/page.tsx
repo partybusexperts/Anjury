@@ -34,27 +34,71 @@ export default function ServiciosPage() {
             Solicitar cotización rápida
           </Link>
         </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {["/media/anjury3.png", "/media/anjury4.png", "/media/anjury5.png"].map((src, index) => (
+        <div className="mt-8 grid gap-4 md:grid-cols-4">
+          {["/media/anjury1.png", "/media/anjury2.png", "/media/anjury3.png", "/media/anjury4.png"].map((src, index) => (
             <ExpandableImage
               key={src}
               src={src}
-              alt={`Portafolio de servicios WOW Dulce ${index + 1}`}
+              alt={`Collage de servicios WOW Dulce ${index + 1}`}
               width={420}
-              height={320}
-              className="h-40 w-full rounded-2xl object-cover"
+              height={420}
+              className="aspect-square w-full rounded-3xl object-cover"
             />
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-2">
+      <section className="space-y-6">
         {serviceDetails.map((service) => (
-          <article key={service.title} className="swirl-card rounded-3xl p-6">
-            <h2 className="text-2xl font-semibold text-dulce-cacao">
-              {service.title}
-            </h2>
-            <p className="mt-3 text-sm text-dulce-cacao/80">{service.body}</p>
+          <article key={service.title} className="rounded-3xl bg-white/90 p-6 shadow">
+            <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase text-dulce-cacao/60">
+              <span className="rounded-full bg-dulce-pink/20 px-3 py-1 text-dulce-pink">
+                {service.badge}
+              </span>
+              <span>WOW Dulce</span>
+            </div>
+            <div className="mt-4 grid gap-6 md:grid-cols-5">
+              <div className="space-y-4 md:col-span-2">
+                <div>
+                  <h2 className="text-2xl font-semibold text-dulce-cacao">{service.title}</h2>
+                  <p className="mt-2 text-sm text-dulce-cacao/80">{service.body}</p>
+                </div>
+                <ul className="space-y-2 text-sm text-dulce-cacao/80">
+                  {service.highlights?.map((highlight) => (
+                    <li key={highlight} className="rounded-2xl bg-white/95 p-3">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-3">
+                  <InfoModal title={service.modalTitle} triggerLabel="Abrir modal" tone="mint">
+                    <ul className="list-disc pl-5">
+                      {service.modalBullets?.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  </InfoModal>
+                  <Link
+                    href={service.ctaHref}
+                    className="inline-flex items-center rounded-full bg-dulce-pink px-4 py-2 text-xs font-semibold text-white shadow hover:scale-105 transition"
+                  >
+                    {service.ctaLabel}
+                  </Link>
+                </div>
+              </div>
+              <div className="grid gap-3 md:col-span-3 md:grid-cols-3">
+                {service.images?.map((image) => (
+                  <ExpandableImage
+                    key={image}
+                    src={image}
+                    alt={`${service.title} WOW Dulce`}
+                    width={420}
+                    height={520}
+                    className="aspect-[4/5] w-full rounded-2xl object-cover"
+                  />
+                ))}
+              </div>
+            </div>
           </article>
         ))}
       </section>
@@ -87,18 +131,23 @@ export default function ServiciosPage() {
         </InfoModal>
       </section>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {["/media/anjury11.png", "/media/anjury12.png"].map((src, index) => (
+      <section className="grid gap-4 md:grid-cols-4">
+        {[
+          "/media/anjury6.png",
+          "/media/anjury7.png",
+          "/media/anjury8.png",
+          "/media/anjury12.png",
+        ].map((src, index) => (
           <ExpandableImage
             key={src}
             src={src}
-            alt={`Producción de servicios WOW Dulce ${index + 1}`}
+            alt={`Servicio estrella WOW Dulce ${index + 1}`}
             width={520}
-            height={400}
-            className="h-52 w-full rounded-3xl object-cover"
+            height={520}
+            className="aspect-square w-full rounded-3xl object-cover"
           />
         ))}
-      </div>
+      </section>
 
       <RainbowCta
         title="¿Mesas de postres, dulces típicos o tortas personalizadas?"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { galleryItems } from "@/data/site-content";
 import { RainbowCta } from "@/components/cta-rainbow";
 import { ExpandableImage } from "@/components/expandable-image";
@@ -24,22 +25,50 @@ export default function GaleriaPage() {
           Usa estas ideas como inspiración y envíanos tu foto de referencia para
           crear un diseño con la firma colorida de WOW Dulce.
         </p>
+        <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-dulce-cacao/70">
+          {[
+            "Cumpleaños",
+            "Bodas",
+            "Mesas de postres",
+            "Dulces típicos",
+            "Detalles sorpresa",
+          ].map((chip) => (
+            <span key={chip} className="rounded-full bg-white/70 px-4 py-2">
+              #{chip}
+            </span>
+          ))}
+        </div>
       </section>
 
       <section className="grid gap-6 md:grid-cols-3">
-        {galleryItems.map((item) => (
-          <figure key={item.title} className="rounded-3xl bg-white/90 p-4 shadow">
+        {galleryItems.map((item, index) => (
+          <figure key={item.title} className="flex flex-col gap-3 rounded-3xl bg-white/90 p-4 shadow">
             <ExpandableImage
               src={item.image}
               alt={item.description}
-              width={640}
-              height={480}
-              className="h-56 w-full rounded-2xl object-cover"
+              width={720}
+              height={900}
+              className={`w-full rounded-3xl object-cover ${index % 3 === 0 ? "h-80" : "h-72"}`}
               caption={item.description}
             />
-            <figcaption className="mt-3 text-sm text-dulce-cacao/80">
+            <figcaption className="text-sm text-dulce-cacao/80">
               {item.description}
             </figcaption>
+            <div className="flex flex-wrap gap-2 text-xs font-semibold">
+              <Link
+                href="/contacto"
+                className="inline-flex items-center rounded-full bg-dulce-pink px-4 py-2 text-white shadow"
+              >
+                Pedir similar →
+              </Link>
+              <InfoModal title="Notas creativas" triggerLabel="Ver detalles" tone="mint">
+                <p>{item.description}</p>
+                <p>
+                  Combínala con toppers personalizados y agrega props según tu evento. Podemos adaptar
+                  colores y altura.
+                </p>
+              </InfoModal>
+            </div>
           </figure>
         ))}
       </section>

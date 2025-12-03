@@ -20,6 +20,18 @@ const cityImages: Record<string, string> = {
   "capacho-nuevo": "/media/anjury9.png",
 };
 
+const cityGalleryMap: Record<string, string[]> = {
+  "san-cristobal": ["/media/anjury1.png", "/media/anjury3.png", "/media/anjury6.png", "/media/anjury11.png"],
+  tariba: ["/media/anjury2.png", "/media/anjury5.png", "/media/anjury8.png", "/media/anjury12.png"],
+  rubio: ["/media/anjury3.png", "/media/anjury7.png", "/media/anjury9.png", "/media/anjury10.png"],
+  palmira: ["/media/anjury4.png", "/media/anjury6.png", "/media/anjury7.png", "/media/anjury10.png"],
+  "la-grita": ["/media/anjury5.png", "/media/anjury8.png", "/media/anjury11.png", "/media/anjury12.png"],
+  michelena: ["/media/anjury6.png", "/media/anjury7.png", "/media/anjury8.png", "/media/anjury9.png"],
+  "san-antonio": ["/media/anjury7.png", "/media/anjury3.png", "/media/anjury5.png", "/media/anjury10.png"],
+  "capacho-viejo": ["/media/anjury8.png", "/media/anjury9.png", "/media/anjury11.png", "/media/anjury4.png"],
+  "capacho-nuevo": ["/media/anjury9.png", "/media/anjury10.png", "/media/anjury12.png", "/media/anjury2.png"],
+};
+
 type CityPageProps = {
   params: { ciudad: string };
 };
@@ -45,6 +57,12 @@ export default function CiudadPage({ params }: CityPageProps) {
   if (!city) {
     notFound();
   }
+  const gallery = cityGalleryMap[city.slug] ?? [
+    "/media/anjury6.png",
+    "/media/anjury7.png",
+    "/media/anjury8.png",
+    "/media/anjury9.png",
+  ];
 
   return (
     <div className="space-y-10">
@@ -112,6 +130,26 @@ export default function CiudadPage({ params }: CityPageProps) {
             </p>
           </InfoModal>
         </article>
+      </section>
+
+      <section className="rounded-3xl bg-white/85 p-6 shadow">
+        <h2 className="text-2xl font-bold text-dulce-cacao">Fotos que inspiran en {city.name}</h2>
+        <p className="mt-2 text-sm text-dulce-cacao/80">
+          Imagina tu evento con estas referencias reales de WOW Dulce. Haz clic para ampliarlas y ver
+          los detalles de buttercream y toppers.
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-4">
+          {gallery.map((image) => (
+            <ExpandableImage
+              key={image}
+              src={image}
+              alt={`${city.name} WOW Dulce`}
+              width={420}
+              height={420}
+              className="aspect-square w-full rounded-3xl object-cover"
+            />
+          ))}
+        </div>
       </section>
 
       <RainbowCta
