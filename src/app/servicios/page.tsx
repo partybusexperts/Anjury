@@ -1,8 +1,9 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
 import { portionHelper, serviceDetails } from "@/data/site-content";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 export const metadata: Metadata = {
   title: "Servicios",
@@ -34,11 +35,11 @@ export default function ServiciosPage() {
           </Link>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {["/media/anjury3.png", "/media/anjury4.png", "/media/anjury5.png"].map((src) => (
-            <Image
+          {["/media/anjury3.png", "/media/anjury4.png", "/media/anjury5.png"].map((src, index) => (
+            <ExpandableImage
               key={src}
               src={src}
-              alt="Portafolio de servicios WOW Dulce"
+              alt={`Portafolio de servicios WOW Dulce ${index + 1}`}
               width={420}
               height={320}
               className="h-40 w-full rounded-2xl object-cover"
@@ -73,17 +74,25 @@ export default function ServiciosPage() {
         <p className="mt-4 text-xs text-dulce-cacao/70">
           Tip: Siempre pide un poquito más… siempre hay alguien que repite 🙈
         </p>
+        <InfoModal title="Guía de sabores" triggerLabel="Ver combinaciones" tone="mint">
+          <ul className="list-disc pl-5">
+            <li>Vainilla + frutos rojos + crema chantilly liviana.</li>
+            <li>Chocolate intenso + arequipe + crocante de cacao tachirense.</li>
+            <li>Red velvet + queso crema cítrico para bodas elegantes.</li>
+          </ul>
+          <p>
+            Podemos adaptar rellenos sin azúcar o sin gluten previo acuerdo para mantener la
+            textura perfecta.
+          </p>
+        </InfoModal>
       </section>
 
       <div className="grid gap-4 md:grid-cols-2">
-        {[
-          "/media/anjury11.png",
-          "/media/anjury12.png",
-        ].map((src) => (
-          <Image
+        {["/media/anjury11.png", "/media/anjury12.png"].map((src, index) => (
+          <ExpandableImage
             key={src}
             src={src}
-            alt="Producción de servicios WOW Dulce"
+            alt={`Producción de servicios WOW Dulce ${index + 1}`}
             width={520}
             height={400}
             className="h-52 w-full rounded-3xl object-cover"

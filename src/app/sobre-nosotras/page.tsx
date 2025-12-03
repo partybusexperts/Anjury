@@ -1,6 +1,7 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 import { brandInfo } from "@/data/site-content";
 import { RainbowCta } from "@/components/cta-rainbow";
 
@@ -63,6 +64,16 @@ export default function SobreNosotrasPage() {
             </Link>{" "}
             y elige tu estilo favorito.
           </p>
+          <InfoModal title="Formación de Anjury" triggerLabel="Ver inspiración" tone="purple">
+            <p>
+              Workshops con pasteleras venezolanas, cursos online con artistas de buttercream y
+              horas de práctica documentadas en cuadernos llenos de swirls.
+            </p>
+            <p>
+              Cada temporada agrega un sabor típico nuevo: papelón con limón, guanábana cremosa o
+              cacao rubiense.
+            </p>
+          </InfoModal>
         </article>
         <aside className="space-y-4 rounded-3xl bg-white/80 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-dulce-cacao">Valores</h2>
@@ -82,11 +93,11 @@ export default function SobreNosotrasPage() {
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
-            {["/media/anjury2.png", "/media/anjury6.png"].map((src) => (
-              <Image
+            {["/media/anjury2.png", "/media/anjury6.png"].map((src, index) => (
+              <ExpandableImage
                 key={src}
                 src={src}
-                alt="Anjury creando tortas WOW"
+                alt={`Anjury creando tortas WOW ${index + 1}`}
                 width={320}
                 height={320}
                 className="h-36 w-full rounded-2xl object-cover"

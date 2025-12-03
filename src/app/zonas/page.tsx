@@ -1,8 +1,9 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
 import { brandInfo, cities } from "@/data/site-content";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 export const metadata: Metadata = {
   title: "Zonas de entrega",
@@ -29,17 +30,27 @@ export default function ZonasPage() {
           Radios de servicio: {brandInfo.serviceRadius}
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {["/media/anjury8.png", "/media/anjury9.png"].map((src) => (
-            <Image
+          {["/media/anjury8.png", "/media/anjury9.png"].map((src, index) => (
+            <ExpandableImage
               key={src}
               src={src}
-              alt="Entregas de WOW Dulce en ruta"
+              alt={`Entregas de WOW Dulce en ruta ${index + 1}`}
               width={520}
               height={360}
               className="h-48 w-full rounded-3xl object-cover"
             />
           ))}
         </div>
+        <InfoModal title="Cómo calculamos el tiempo" triggerLabel="Ver logística" tone="purple">
+          <p>
+            Consideramos tráfico hacia la frontera, disponibilidad de gasolina y protección del
+            montaje. Por eso pedimos mínimo 5 días para rutas extendidas.
+          </p>
+          <p>
+            Lleva siempre una mesa firme y sombra si la entrega es al aire libre: así el buttercream
+            se mantiene perfecto.
+          </p>
+        </InfoModal>
       </section>
 
       <section className="grid gap-6 md:grid-cols-3">

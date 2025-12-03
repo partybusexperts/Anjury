@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { galleryItems } from "@/data/site-content";
 import { RainbowCta } from "@/components/cta-rainbow";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 export const metadata: Metadata = {
   title: "Galería WOW Dulce",
@@ -28,12 +29,13 @@ export default function GaleriaPage() {
       <section className="grid gap-6 md:grid-cols-3">
         {galleryItems.map((item) => (
           <figure key={item.title} className="rounded-3xl bg-white/90 p-4 shadow">
-            <Image
+            <ExpandableImage
               src={item.image}
               alt={item.description}
               width={640}
               height={480}
               className="h-56 w-full rounded-2xl object-cover"
+              caption={item.description}
             />
             <figcaption className="mt-3 text-sm text-dulce-cacao/80">
               {item.description}
@@ -41,6 +43,17 @@ export default function GaleriaPage() {
           </figure>
         ))}
       </section>
+
+      <InfoModal title="Cómo armar tu moodboard" triggerLabel="Ver recomendaciones" tone="purple">
+        <p>
+          Guarda tus fotos favoritas de esta galería y combínalas con tu decoración en Pinterest
+          para que definamos paleta, altura y topper.
+        </p>
+        <p>
+          También aceptamos videos cortos de TikTok o Reels: analizamos la textura para replicarla
+          con buttercream propio.
+        </p>
+      </InfoModal>
 
       <RainbowCta
         title="¿Quieres tu propio momento WOW?"

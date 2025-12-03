@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 import {
   brandInfo,
   differentiators,
@@ -49,17 +50,17 @@ export default function HomePage() {
             </span>
           </div>
         </div>
-        <div className="relative">
+          <div className="relative">
           <div className="absolute -inset-4 rounded-[2.5rem] bg-white/60 blur" />
           <div className="relative rounded-[2.5rem] bg-white/90 p-3 shadow-2xl">
-            <Image
-              src="/media/anjury1.png"
-              alt="Torta colorida de WOW Dulce decorada con swirls y frutas"
-              width={640}
-              height={640}
-              className="h-80 w-full rounded-[2rem] object-cover"
-              priority
-            />
+              <ExpandableImage
+                src="/media/anjury1.png"
+                alt="Torta colorida de WOW Dulce decorada con swirls y frutas"
+                width={640}
+                height={640}
+                className="h-80 w-full rounded-[2rem] object-cover"
+                priority
+              />
             <div className="mt-3 flex items-center justify-between px-1 text-xs text-dulce-cacao/70">
               <span>Diseño por Anjury · WOW Dulce</span>
               <span>🎂 Hecho en Táchira</span>
@@ -83,6 +84,17 @@ export default function HomePage() {
             </article>
           ))}
         </div>
+        <InfoModal title="Proceso creativo de Anjury" triggerLabel="Ver cómo nace cada torta">
+          <p>
+            Desde el boceto con lápices de colores hasta el armado final, cada pedido pasa
+            por pruebas de sabor, selección de insumos frescos y fotos de avance para tus
+            aprobaciones.
+          </p>
+          <p>
+            Si necesitas cambios de último minuto, usamos tableros digitales para ajustar
+            paletas y toppers sin perder tiempo.
+          </p>
+        </InfoModal>
       </section>
 
       <section className="mt-16 space-y-4">
@@ -125,12 +137,13 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {galleryItems.slice(0, 3).map((item) => (
             <figure key={item.title} className="rounded-3xl bg-white/80 p-3 shadow-sm">
-              <Image
+              <ExpandableImage
                 src={item.image}
                 alt={item.description}
                 width={420}
                 height={320}
                 className="h-48 w-full rounded-2xl object-cover"
+                caption={item.description}
               />
               <figcaption className="mt-3 text-sm text-dulce-cacao/80">
                 {item.description}
@@ -138,6 +151,13 @@ export default function HomePage() {
             </figure>
           ))}
         </div>
+        <InfoModal title="Tips para tus fotos" triggerLabel="Consejos de styling" tone="mint">
+          <ul className="list-disc pl-5">
+            <li>Coloca la torta cerca de luz natural para resaltar los degradados.</li>
+            <li>Usa manteles neutros para que el colorido WOW Dulce destaque.</li>
+            <li>Siempre toma foto antes de cortar: la textura interior se ve mejor después.</li>
+          </ul>
+        </InfoModal>
       </section>
 
       <section className="mt-16 space-y-4">
@@ -150,14 +170,15 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid gap-4 md:grid-cols-4">
-          {["/media/anjury7.png", "/media/anjury8.png", "/media/anjury9.png", "/media/anjury10.png"].map((src) => (
-            <Image
+          {["/media/anjury7.png", "/media/anjury8.png", "/media/anjury9.png", "/media/anjury10.png"].map((src, index) => (
+            <ExpandableImage
               key={src}
               src={src}
-              alt="Proceso creativo de WOW Dulce"
+              alt={`Proceso creativo de WOW Dulce ${index + 1}`}
               width={320}
               height={320}
-              className="h-48 w-full rounded-2xl object-cover shadow"
+              className="h-48 w-full rounded-2xl object-cover"
+              frameClassName="shadow"
             />
           ))}
         </div>

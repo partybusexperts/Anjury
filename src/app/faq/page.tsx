@@ -1,8 +1,9 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
 import { faqs } from "@/data/site-content";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 export const metadata: Metadata = {
   title: "Preguntas frecuentes",
@@ -41,17 +42,28 @@ export default function FaqPage() {
       </dl>
 
       <div className="grid gap-4 md:grid-cols-2">
-        {["/media/anjury4.png", "/media/anjury5.png"].map((src) => (
-          <Image
+        {["/media/anjury4.png", "/media/anjury5.png"].map((src, index) => (
+          <ExpandableImage
             key={src}
             src={src}
-            alt="Preguntas frecuentes WOW Dulce"
+            alt={`Preguntas frecuentes WOW Dulce ${index + 1}`}
             width={520}
             height={360}
             className="h-48 w-full rounded-3xl object-cover"
           />
         ))}
       </div>
+
+      <InfoModal title="Política de abonos" triggerLabel="Detalles de pagos" tone="mint">
+        <p>
+          Reservamos tu fecha con 50% de abono vía pago móvil o transferencia. El comprobante llega
+          al correo y WhatsApp.
+        </p>
+        <p>
+          El restante se cancela al entregar, luego tomamos fotos finales y te enviamos tips de
+          conservación.
+        </p>
+      </InfoModal>
 
       <RainbowCta
         title="¿Listo para asegurar tu fecha?"

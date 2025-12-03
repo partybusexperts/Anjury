@@ -1,9 +1,10 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { RainbowCta } from "@/components/cta-rainbow";
 import { brandInfo, cities } from "@/data/site-content";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 const cityMap = Object.fromEntries(cities.map((city) => [city.slug, city]));
 
@@ -58,7 +59,7 @@ export default function CiudadPage({ params }: CityPageProps) {
           anticipación para asegurar tu horario ideal.
         </p>
         <div className="mt-6">
-          <Image
+          <ExpandableImage
             src={cityImages[city.slug] ?? "/media/anjury10.png"}
             alt={`Torta WOW Dulce para ${city.name}`}
             width={960}
@@ -96,6 +97,20 @@ export default function CiudadPage({ params }: CityPageProps) {
           >
             Ver catálogos de servicios →
           </Link>
+          <InfoModal
+            title={`Bonus para ${city.name}`}
+            triggerLabel="Ideas extra"
+            tone="mint"
+          >
+            <p>
+              Sugerimos coordinar fotos 15 minutos antes de servir para aprovechar la luz local y
+              capturar cada swirl.
+            </p>
+            <p>
+              Si tu evento es al aire libre, llevamos un kit de emergencia con espátulas frías para
+              retoques express.
+            </p>
+          </InfoModal>
         </article>
       </section>
 

@@ -1,9 +1,10 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RainbowCta } from "@/components/cta-rainbow";
 import { LocationSlider } from "@/components/location-slider";
 import { brandInfo, cities, locationFacts } from "@/data/site-content";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 export const metadata: Metadata = {
   title: "Ubicaciones WOW Dulce",
@@ -45,17 +46,27 @@ export default function UbicacionesPage() {
           </span>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {["/media/anjury11.png", "/media/anjury12.png"].map((src) => (
-            <Image
+          {["/media/anjury11.png", "/media/anjury12.png"].map((src, index) => (
+            <ExpandableImage
               key={src}
               src={src}
-              alt="Ciudades del Táchira atendidas por WOW Dulce"
+              alt={`Ciudades del Táchira atendidas por WOW Dulce ${index + 1}`}
               width={520}
               height={360}
               className="h-48 w-full rounded-3xl object-cover"
             />
           ))}
         </div>
+        <InfoModal title="Rutas especiales" triggerLabel="Leer tips de logística" tone="mint">
+          <p>
+            Para La Grita y San Antonio monitoreamos clima, alcabalas y disponibilidad de hielo
+            seco. Te avisamos si debemos adelantar o retrasar la salida.
+          </p>
+          <p>
+            Si estás en frontera, prepara los documentos de acceso al conjunto para que podamos
+            entregar a tiempo.
+          </p>
+        </InfoModal>
       </section>
 
       <section className="space-y-5">

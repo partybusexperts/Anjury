@@ -1,6 +1,7 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { brandInfo } from "@/data/site-content";
+import { ExpandableImage } from "@/components/expandable-image";
+import { InfoModal } from "@/components/info-modal";
 
 export const metadata: Metadata = {
   title: "Contacto / Pedido rápido",
@@ -83,6 +84,15 @@ export default function ContactoPage() {
           >
             Enviar a WOW Dulce
           </button>
+          <InfoModal title="Qué responderás" triggerLabel="Ver checklist" tone="mint">
+            <p>
+              Al recibir tu mensaje te contestaremos con horarios tentativos, propuesta de sabores y
+              formas de pago disponibles.
+            </p>
+            <p>
+              Si adjuntas fotos de referencia las guardamos en tu expediente para futuras órdenes.
+            </p>
+          </InfoModal>
         </form>
 
         <div className="space-y-6 rounded-3xl bg-white/90 p-6 shadow">
@@ -114,14 +124,14 @@ export default function ContactoPage() {
         </div>
 
         <div className="space-y-4 rounded-3xl bg-white/90 p-6 shadow">
-          <Image
+          <ExpandableImage
             src="/media/anjury6.png"
             alt="Muestras de tortas para contacto WOW Dulce"
             width={420}
             height={520}
             className="h-64 w-full rounded-2xl object-cover"
           />
-          <Image
+          <ExpandableImage
             src="/media/anjury7.png"
             alt="Detalle dulce personalizado"
             width={420}
