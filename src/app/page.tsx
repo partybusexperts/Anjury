@@ -50,7 +50,7 @@ export default function HomePage() {
             </span>
           </div>
         </div>
-          <div className="relative">
+          <div className="relative w-full">
           <div className="absolute -inset-4 rounded-[2.5rem] bg-white/60 blur" />
           <div className="relative rounded-[2.5rem] bg-white/90 p-3 shadow-2xl">
               <ExpandableImage
@@ -59,6 +59,7 @@ export default function HomePage() {
                 width={640}
                 height={640}
                 className="h-80 w-full rounded-[2rem] object-cover"
+                containerClassName="w-full"
                 priority
               />
             <div className="mt-3 flex items-center justify-between px-1 text-xs text-dulce-cacao/70">

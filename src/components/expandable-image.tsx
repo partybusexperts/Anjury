@@ -6,12 +6,14 @@ import { useState, useEffect, useCallback, useRef } from "react";
 interface ExpandableImageProps extends ImageProps {
   caption?: string;
   frameClassName?: string;
+  containerClassName?: string;
 }
 
 export function ExpandableImage({
   caption,
   className = "",
   frameClassName = "",
+  containerClassName = "",
   alt,
   src,
   ...imageProps
@@ -48,7 +50,7 @@ export function ExpandableImage({
         type="button"
         aria-label={`Ampliar imagen: ${alt}`}
         onClick={() => setOpen(true)}
-        className={`group relative block overflow-hidden rounded-2xl border border-white/60 bg-white/70 shadow transition hover:scale-[1.01] ${frameClassName}`}
+        className={`group relative block overflow-hidden rounded-2xl border border-white/60 bg-white/70 shadow transition hover:scale-[1.01] ${frameClassName} ${containerClassName}`}
       >
         <Image src={src} alt={alt} className={`object-cover ${className}`} {...imageProps} />
         <span className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30 opacity-0 transition group-hover:opacity-100" />
