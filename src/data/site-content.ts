@@ -13,7 +13,6 @@ export const navLinks = [
   { href: "/sobre-nosotras", label: "Sobre nosotras" },
   { href: "/servicios", label: "Servicios" },
   { href: "/zonas", label: "Zonas" },
-  { href: "/ubicaciones", label: "Ubicaciones" },
   { href: "/galeria", label: "Galería" },
   { href: "/faq", label: "FAQ" },
   { href: "/contacto", label: "Contacto" },
@@ -195,6 +194,31 @@ export const faqs = [
     question: "¿Ofrecen opciones sin azúcar o sin gluten?",
     answer:
       "Podemos adaptar algunas recetas. Escríbenos para revisar tu caso y cuidar cada detalle.",
+  },
+  {
+    question: "¿Qué sabores puedo combinar?",
+    answer:
+      "Puedes mezclar capas de vainilla, chocolate, red velvet o torta de jojoto con rellenos de frutos rojos, arequipe o crema cítrica. Te guiamos según la temporada.",
+  },
+  {
+    question: "¿Cómo transportan las tortas?",
+    answer:
+      "Usamos bases acrílicas, cajas reforzadas y soportes internos. Llevamos kits de emergencias con espátulas frías y hielo en gel por si hay ajustes.",
+  },
+  {
+    question: "¿Puedo personalizar el topper?",
+    answer:
+      "Sí. Tenemos toppers impresos, acrílicos y hechos a mano. También podemos imprimir tu frase favorita.",
+  },
+  {
+    question: "¿Qué pasa si llueve el día del evento?",
+    answer:
+      "Recomendamos tener una mesa alternativa bajo techo. Si el clima complica la ruta, coordinamos contigo para adelantar u ofrecer un punto de entrega alterno.",
+  },
+  {
+    question: "¿Aceptan pedidos corporativos o por volumen?",
+    answer:
+      "Sí. Armamos cajas personalizadas con tu logo, desayunos empresariales y mesas de postres temáticas para lanzamientos.",
   },
 ];
 

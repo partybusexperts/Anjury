@@ -107,6 +107,73 @@ export default function SobreNosotrasPage() {
         </aside>
       </section>
 
+      <section className="rounded-3xl bg-white/85 p-6 shadow">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-dulce-cacao">Cronología dulce</h2>
+            <p className="text-sm text-dulce-cacao/70">
+              Un vistazo rápido a cómo Anjury convirtió un hobby familiar en el atelier WOW Dulce.
+            </p>
+          </div>
+          <InfoModal title="Detrás de los swirls" triggerLabel="Ver backstage" tone="mint">
+            <p>
+              Cada diseño arranca con moodboards, luego horneamos pruebas miniatura para ajustar
+              texturas antes del pastel final.
+            </p>
+            <p>
+              Documentamos todo en fotos para que los clientes vean el progreso y puedan pedir
+              ajustes oportunamente.
+            </p>
+          </InfoModal>
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-4">
+          {[
+            { src: "/media/anjury3.png", label: "2009 · Tortas caseras" },
+            { src: "/media/anjury4.png", label: "2015 · Primeras bodas" },
+            { src: "/media/anjury5.png", label: "2020 · Mesas corporativas" },
+            { src: "/media/anjury7.png", label: "2024 · Detalles sorpresa" },
+          ].map((item) => (
+            <div key={item.src} className="space-y-2">
+              <ExpandableImage
+                src={item.src}
+                alt={item.label}
+                width={360}
+                height={360}
+                className="h-48 w-full rounded-3xl object-cover"
+              />
+              <p className="text-center text-xs font-semibold text-dulce-cacao">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-3xl bg-white/90 p-6 shadow">
+        <h2 className="text-2xl font-bold text-dulce-cacao">Moodboard de inspiración</h2>
+        <p className="mt-2 text-sm text-dulce-cacao/70">
+          Cada pedido incluye referencias visuales que compartimos por WhatsApp para alinear tonos y
+          texturas. Aquí algunas favoritas.
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          {[
+            "/media/anjury8.png",
+            "/media/anjury9.png",
+            "/media/anjury10.png",
+            "/media/anjury11.png",
+            "/media/anjury12.png",
+            "/media/anjury1.png",
+          ].map((src, index) => (
+            <ExpandableImage
+              key={src}
+              src={src}
+              alt={`Moodboard WOW Dulce ${index + 1}`}
+              width={420}
+              height={320}
+              className="h-44 w-full rounded-3xl object-cover"
+            />
+          ))}
+        </div>
+      </section>
+
       <RainbowCta
         title="¿Listas para planear tu torta?"
         description="Cuéntanos qué estás celebrando y te recomendamos sabores, tamaños y diseños perfectos para tu evento."
